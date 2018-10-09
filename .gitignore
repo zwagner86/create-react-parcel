@@ -1,0 +1,8 @@
+*.log
+.DS_Store
+.idea
+.env
+.sass-cache
+.venv
+node_modules
+_internal
