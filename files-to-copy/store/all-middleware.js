@@ -3,7 +3,7 @@ import createHistory from 'history/createBrowserHistory';
 import {connectRouter, routerMiddleware} from 'connected-react-router';
 import thunkMiddleware from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
-import reducers from './reducers';
+import reducers from '../reducers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // eslint-disable-line no-underscore-dangle
 const history = createHistory();

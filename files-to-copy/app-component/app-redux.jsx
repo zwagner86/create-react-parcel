@@ -11,7 +11,7 @@ const App = ({
             React + Parcel
             {message &&
                 <div className="App">
-                    React + Parcel
+                    {message}
                 </div>
             }
         </div>
@@ -34,4 +34,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)App;
+export default connect(mapStateToProps)(App);

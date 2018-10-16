@@ -48,7 +48,7 @@ const startInstall = appName => {
     console.log('');
     console.log('----------------------------------------------------------');
     console.log('');
-    figlet('Create React Parcel', function (err, data) {
+    figlet('React + Parcel', function (err, data) {
         if (err) {
             return;
         }
@@ -77,20 +77,20 @@ const startInstall = appName => {
 // get dependencies passed to build, pass to installDependencies
 const build = ({ appName, appArgs }) => {
     cp('-r', __dirname + `/../src/.`, appName);
-    cp(__dirname + `/../files-to-copy/main/${appArgs.mainFile}.js`, `${appName}/js/main.js`);
-    cp(__dirname + `/../files-to-copy/app-component/${appArgs.appComponent}.jsx`, `${appName}/js/App.jsx`);
+    cp(__dirname + `/../files-to-copy/index/${appArgs.indexFile}.js`, `${appName}/index.js`);
+    cp(__dirname + `/../files-to-copy/app-component/${appArgs.appComponent}.jsx`, `${appName}/App.jsx`);
 
     if (appArgs.useRedux) {
-        mkdir('-p', `${appName}/js/store`);
-        mkdir('-p', `${appName}/js/reducers`);
-        mkdir('-p', `${appName}/js/message`);
-        cp(__dirname + `/../files-to-copy/store/${appArgs.storeFile}.js`, `${appName}/js/store/index.js`);
-        cp(__dirname + `/../files-to-copy/reducer/${appArgs.reducerFile}.js`, `${appName}/js/reducers/index.js`);
-        cp(__dirname + `/../files-to-copy/message/message-reducer.js`, `${appName}/js/message/message-reducer.js`);
+        mkdir('-p', `${appName}/store`);
+        mkdir('-p', `${appName}/reducers`);
+        mkdir('-p', `${appName}/message`);
+        cp(__dirname + `/../files-to-copy/store/${appArgs.storeFile}.js`, `${appName}/store/index.js`);
+        cp(__dirname + `/../files-to-copy/reducer/${appArgs.reducerFile}.js`, `${appName}/reducers/index.js`);
+        cp(__dirname + `/../files-to-copy/message/message-reducer.js`, `${appName}/message/message-reducer.js`);
     }
 
     if (appArgs.rootComponent) {
-        cp(__dirname + `/../files-to-copy/root-component/${appArgs.rootComponent}.jsx`, `${appName}/js/Root.jsx`);
+        cp(__dirname + `/../files-to-copy/root-component/${appArgs.rootComponent}.jsx`, `${appName}/Root.jsx`);
     }
 
     commands.rewritePackageJson(`${appName}/package.json`, appName, appArgs)

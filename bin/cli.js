@@ -101,7 +101,7 @@ inquirer.prompt([
     }
 
     appArgs.appComponent = (useRedux) ? 'app-redux' : 'app-basic';
-    appArgs.mainFile = (useRedux || useRouter) ? 'main-root' : 'main-app';
+    appArgs.indexFile = (useRedux || useRouter) ? 'index-root' : 'index-app';
 
     spawn(build({ appName: appName, appArgs }), { shell: true, stdio: 'inherit' });
 });
