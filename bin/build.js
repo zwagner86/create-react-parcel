@@ -54,7 +54,7 @@ const startInstall = appName => {
         }
         console.log(data);
         console.log('----------------------------------------------------------');
-        console.log(chalk.white.bold('Welcome to Create React Parcel'));
+        console.log(chalk.white.bold('Welcome to Create React Parcel App'));
         console.log('----------------------------------------------------------');
         console.log('');
         cd(appName);

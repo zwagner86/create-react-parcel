@@ -1,6 +1,6 @@
 {
-  "name": "react-parcel",
-  "version": "1.0.0",
+  "name": "react-parcel-app",
+  "version": "0.0.1",
   "description": "Simple React + Parcel set up.",
   "main": "index.js",
   "scripts": {
@@ -8,11 +8,9 @@
     "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Zachary Wagner",
-  "license": "MIT",
   "devDependencies": {
-    "@spothero/eslint-config": "1.4.2",
-    "@spothero/stylelint-config": "1.1.0",
+    "@spothero/eslint-config": "1.4.3",
+    "@spothero/stylelint-config": "1.1.1",
     "node-sass": "4.9.3",
     "parcel-bundler": "latest"
   },

@@ -2,7 +2,7 @@
   "version": "0.0.1",
   "main": "index.js",
   "bin": "bin/cli.js",
-  "name": "create-react-parcel",
+  "name": "create-react-parcel-app",
   "author": "Zach Wagner",
   "description": "",
   "scripts": {
