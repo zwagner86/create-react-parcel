@@ -5,7 +5,7 @@ const commands = {};
 
 const rewritePackageJson = (file, appName, appArgs) => {
     return new Promise((resolve, reject) => {
-        fs.readFile(file, 'utf8', function (err, data) {
+        fs.readFile(file, 'utf8', (err, data) => {
             if (err) {
                 return console.log(err);
             }
@@ -20,6 +20,7 @@ const rewritePackageJson = (file, appName, appArgs) => {
 
                 if (appArgs.useRouter) {
                     appDependencies.push(dependencies.CONNECTED_REACT_ROUTER);
+                    appDependencies.push(dependencies.REACT_ROUTER);
                     appDependencies.push(dependencies.HISTORY);
                 }
             }
@@ -33,7 +34,7 @@ const rewritePackageJson = (file, appName, appArgs) => {
                 appDependencies.push(dependencies.REACT_ROUTER_DOM);
             }
 
-            if (packages.length > 0) {
+            if (packages && packages.length > 0) {
                 packages.forEach(package => {
                     appDependencies.push(dependencies.COMMON_PACKAGES[package]);
                 });
@@ -48,9 +49,9 @@ const rewritePackageJson = (file, appName, appArgs) => {
             }
 
             let result1 = data.replace(/"name": "",/g, `"name": "${appName}",`);
-            const result2 = result1.replace(/"react": "16.4.2"/g, `${appDependenciesString}`);
+            const result2 = result1.replace(/"react": "16.8.1"/g, `${appDependenciesString}`);
 
-            fs.writeFile(file, result2, 'utf8', function (err) {
+            fs.writeFile(file, result2, 'utf8', err => {
                 if (err) return console.log(err);
                 resolve();
             });

@@ -87,10 +87,12 @@ inquirer.prompt([
 
         if (useReduxMiddleware && useRouter) {
             appArgs.storeFile = 'all-middleware';
+            appArgs.reducerFile = 'redux-with-router';
         } else if (useReduxMiddleware && !useRouter) {
             appArgs.storeFile = 'redux-middleware';
         } else if (!useReduxMiddleware && useRouter) {
             appArgs.storeFile = 'router-middleware';
+            appArgs.reducerFile = 'redux-with-router';
         } else {
             appArgs.storeFile = 'no-extra-middleware';
         }
@@ -103,5 +105,5 @@ inquirer.prompt([
     appArgs.appComponent = (useRedux) ? 'app-redux' : 'app-basic';
     appArgs.indexFile = (useRedux || useRouter) ? 'index-root' : 'index-app';
 
-    spawn(build({ appName: appName, appArgs }), { shell: true, stdio: 'inherit' });
+    spawn(build({ appName, appArgs }), null, { shell: true, stdio: "inherit" });
 });

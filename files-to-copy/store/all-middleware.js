@@ -1,9 +1,9 @@
 import {createStore, applyMiddleware, compose} from 'redux';
 import createHistory from 'history/createBrowserHistory';
-import {connectRouter, routerMiddleware} from 'connected-react-router';
+import {routerMiddleware} from 'connected-react-router';
 import thunkMiddleware from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
-import reducers from '../reducers';
+import createRootReducer from '../reducers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // eslint-disable-line no-underscore-dangle
 const history = createHistory();
@@ -12,13 +12,13 @@ let store;
 
 export default function create(initialState) {
     store = createStore(
-        connectRouter(history)(reducers),
+        createRootReducer(history),
         initialState,
         composeEnhancers(
             applyMiddleware(
                 routingMiddleware,
                 thunkMiddleware,
-                promiseMiddleware()
+                promiseMiddleware
             )
         )
     );

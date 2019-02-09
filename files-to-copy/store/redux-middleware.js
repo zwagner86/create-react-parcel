@@ -13,7 +13,7 @@ export default function create(initialState) {
         composeEnhancers(
             applyMiddleware(
                 thunkMiddleware,
-                promiseMiddleware()
+                promiseMiddleware
             )
         )
     );
