@@ -1,3 +1,6 @@
+# 0.2.1 - 05/08/2019 - [Zachary Wagner](mailto:zwagner86@gmail.com)
+-   Update README.
+
 # 0.2.0 - 05/08/2019 - [Zachary Wagner](mailto:zwagner86@gmail.com)
 -   Add more optional packages and format the Inquirer prompt around them.
 -   Fix `ERR_INVALID_ARG_TYPE` TypeError issue due to unnecessary spawn.

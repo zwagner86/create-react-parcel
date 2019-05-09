@@ -70,11 +70,12 @@ my-app
 ├── .npmrc
 ├── .nvmrc
 ├── .postcssrc
-├── App.jsx
-├── App.scss
-├── index.html
-├── index.js
-└── index.scss
+└── src
+    ├── App.jsx
+    ├── App.scss
+    ├── index.html
+    ├── index.js
+    └── index.scss
 ```
 
 No configuration or complicated folder structures, just the files you need to build your app.<br>
