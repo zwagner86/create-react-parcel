@@ -7,7 +7,6 @@ import createRootReducer from '../reducers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // eslint-disable-line no-underscore-dangle
 const history = createHistory();
-const routingMiddleware = routerMiddleware(history);
 let store;
 
 export default function create(initialState) {
@@ -16,7 +15,7 @@ export default function create(initialState) {
         initialState,
         composeEnhancers(
             applyMiddleware(
-                routingMiddleware,
+                routerMiddleware(history),
                 thunkMiddleware,
                 promiseMiddleware
             )

@@ -5,10 +5,10 @@ const path = require('path');
 const fs = require('fs');
 const figlet = require('figlet');
 const chalk = require('chalk');
-const execSync = require('child_process').execSync;
+const {execSync} = require('child_process');
 const spawn = require('cross-spawn');
 
-const commands = require('./rewritePackageJson');
+const rewritePackageJson = require('./rewritePackageJson');
 
 function shouldUseYarn() {
     try {
@@ -60,7 +60,9 @@ const startInstall = appName => {
         cd(appName);
         installDependencies()
             .then(() => {
-                console.log(chalk.white.bold('Let\'s get started'));
+                console.log('');
+                console.log('');
+                console.log(chalk.white.bold('Let\'s get started!'));
                 console.log('');
                 console.log(chalk.green('Step 1: cd into the newly created ' + appName + ' directory'));
                 console.log('----------------------------------------------------------');
@@ -68,7 +70,7 @@ const startInstall = appName => {
                 console.log('');
             })
             .catch(error => {
-                console.log(chalk.red('An unexpected error occurred'))
+                console.log(chalk.red('An unexpected error occurred'));
                 console.log(chalk.red(error));
             });
     });
@@ -76,24 +78,26 @@ const startInstall = appName => {
 
 // get dependencies passed to build, pass to installDependencies
 const build = ({ appName, appArgs }) => {
+    const appSrc = `${appName}/src`;
+
     cp('-r', __dirname + `/../src/.`, appName);
-    cp(__dirname + `/../files-to-copy/index/${appArgs.indexFile}.js`, `${appName}/index.js`);
-    cp(__dirname + `/../files-to-copy/app-component/${appArgs.appComponent}.jsx`, `${appName}/App.jsx`);
+    cp(__dirname + `/../files-to-copy/index/${appArgs.indexFile}.js`, `${appSrc}/index.js`);
+    cp(__dirname + `/../files-to-copy/app-component/${appArgs.appComponent}.jsx`, `${appSrc}/App.jsx`);
 
     if (appArgs.useRedux) {
-        mkdir('-p', `${appName}/store`);
-        mkdir('-p', `${appName}/reducers`);
-        mkdir('-p', `${appName}/message`);
-        cp(__dirname + `/../files-to-copy/store/${appArgs.storeFile}.js`, `${appName}/store/index.js`);
-        cp(__dirname + `/../files-to-copy/reducer/${appArgs.reducerFile}.js`, `${appName}/reducers/index.js`);
-        cp(__dirname + `/../files-to-copy/message/message-reducer.js`, `${appName}/message/message-reducer.js`);
+        mkdir('-p', `${appSrc}/store`);
+        mkdir('-p', `${appSrc}/reducers`);
+        mkdir('-p', `${appSrc}/message`);
+        cp(__dirname + `/../files-to-copy/store/${appArgs.storeFile}.js`, `${appSrc}/store/index.js`);
+        cp(__dirname + `/../files-to-copy/reducer/${appArgs.reducerFile}.js`, `${appSrc}/reducers/index.js`);
+        cp(__dirname + `/../files-to-copy/message/message-reducer.js`, `${appSrc}/message/message-reducer.js`);
     }
 
     if (appArgs.rootComponent) {
-        cp(__dirname + `/../files-to-copy/root-component/${appArgs.rootComponent}.jsx`, `${appName}/Root.jsx`);
+        cp(__dirname + `/../files-to-copy/root-component/${appArgs.rootComponent}.jsx`, `${appSrc}/Root.jsx`);
     }
 
-    commands.rewritePackageJson(`${appName}/package.json`, appName, appArgs)
+    rewritePackageJson(`${appName}/package.json`, appName, appArgs)
         .then(() => {
             startInstall(appName);
         })

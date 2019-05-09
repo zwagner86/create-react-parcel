@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-const spawn = require('child_process').spawn;
 const package = require('../package.json');
 const chalk = require('chalk');
 const inquirer = require('inquirer');
@@ -9,8 +8,11 @@ const inquirer = require('inquirer');
 const build = require('./build');
 const dependencies = require('./dependencies');
 
-const commonPackages = Object.keys(dependencies.COMMON_PACKAGES);
-
+const utilityPackages = Object.keys(dependencies.UTILITY_PACKAGES);
+const timePackages = Object.keys(dependencies.TIME_PACKAGES);
+const asyncPackages = Object.keys(dependencies.ASYNC_PACKAGES);
+const hocHelperPackages = Object.keys(dependencies.HOC_HELPER_PACKAGES);
+const miscPackages = Object.keys(dependencies.MISC_PACKAGES);
 
 program
     .version(package.version)
@@ -57,8 +59,20 @@ const reactRouterPrompt = {
 const otherPackagesPrompt = {
     type: 'checkbox',
     name: 'others',
-    message: 'Select any of the following commonly used packages you need?:\n',
-    choices: commonPackages
+    pageSize: 25,
+    message: 'Select any of the following commonly used packages you need:\n',
+    choices: [
+        new inquirer.Separator('\n === Utility Packages === '),
+        ...utilityPackages,
+        new inquirer.Separator('\n === Time Packages === '),
+        ...timePackages,
+        new inquirer.Separator('\n === Async Packages === '),
+        ...asyncPackages,
+        new inquirer.Separator('\n === HOC Helper Packages === '),
+        ...hocHelperPackages,
+        new inquirer.Separator('\n === Miscellaneous Packages === '),
+        ...miscPackages
+    ]
 };
 
 inquirer.prompt([
@@ -105,5 +119,8 @@ inquirer.prompt([
     appArgs.appComponent = (useRedux) ? 'app-redux' : 'app-basic';
     appArgs.indexFile = (useRedux || useRouter) ? 'index-root' : 'index-app';
 
-    spawn(build({ appName, appArgs }), null, { shell: true, stdio: "inherit" });
+    build({ appName, appArgs });
+}).catch(error => {
+    console.log(chalk.red('Oops! Something went wrong!'));
+    console.log(chalk.red(error));
 });
