@@ -97,7 +97,7 @@ You will see the build errors and lint warnings in the console.
 
 ### `npm test` or `yarn test`
 
-No testing set up yet.
+This will run tests using Jest and React Testing Library.
 
 ### `npm run build` or `yarn build`
 
