@@ -1,3 +1,8 @@
+# 0.3.1 - 07/31/2019 - [Zachary Wagner](mailto:zwagner86@gmail.com)
+-   Update CLI dependencies.
+-   Update generated project dependencies and related files.
+-   Update README.
+
 # 0.2.1 - 05/08/2019 - [Zachary Wagner](mailto:zwagner86@gmail.com)
 -   Update README.
 

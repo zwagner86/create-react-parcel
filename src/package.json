@@ -9,10 +9,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@spothero/eslint-config": "1.6.1",
-    "@spothero/stylelint-config": "1.1.4",
-    "node-sass": "4.11.0",
-    "parcel-bundler": "latest"
+    "@spothero/eslint-config": "1.8.4",
+    "@spothero/stylelint-config": "1.2.1",
+    "node-sass": "4.12.0",
+    "parcel-bundler": "1.12.3"
   },
   "dependencies": {
     "react": "16.8.6"
