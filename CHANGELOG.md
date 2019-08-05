@@ -1,3 +1,7 @@
+# 0.5.1 - 08/05/2019 - [Zachary Wagner](mailto:zwagner86@gmail.com)
+-   Added option for basic and advanced `.babelrc` file.
+-   Updated how project devDependencies get configured.
+
 # 0.4.1 - 08/01/2019 - [Zachary Wagner](mailto:zwagner86@gmail.com)
 -   Added testing functionality using Jest and React Testing Library.
 -   Updated README.

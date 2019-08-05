@@ -1,9 +1,11 @@
 const BASIC_PACKAGES = [
     `\n    "autoprefixer": "9.6.1"`,
+    `\n    "core-js": "3.1.4"`,
     `\n    "postcss-modules": "1.4.1"`,
     `\n    "prop-types": "15.7.2"`,
     `\n    "react": "16.8.6"`,
-    `\n    "react-dom": "16.8.6"`
+    `\n    "react-dom": "16.8.6"`,
+    `\n    "regenerator-runtime": "0.13.3"`
 ];
 const REDUX_PACKAGES = [
     `\n    "react-redux": "7.1.0"`,

@@ -56,6 +56,12 @@ const reactRouterPrompt = {
     message: 'Will you be using React Router?:'
 };
 
+const babelPrompt = {
+    type: 'confirm',
+    name: 'babel',
+    message: 'Do you want some advanced Babel transpiling plugins?:'
+};
+
 const otherPackagesPrompt = {
     type: 'checkbox',
     name: 'others',
@@ -80,15 +86,18 @@ inquirer.prompt([
     reduxPrompt,
     reduxMiddlewarePrompt,
     reactRouterPrompt,
+    babelPrompt,
     otherPackagesPrompt
 ]).then(answers => {
     const appName = program.args[0] || answers.appName;
     const useRedux = answers.redux;
     const useReduxMiddleware = (answers.reduxMiddleware);
     const useRouter = answers.router;
+    const useAdvancedBabel = answers.babel;
     const packages = answers.others;
 
     const appArgs = {
+        useAdvancedBabel: useAdvancedBabel,
         useRedux: useRedux,
         useReduxMiddleware: useReduxMiddleware,
         useRouter: useRouter,

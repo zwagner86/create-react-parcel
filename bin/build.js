@@ -80,10 +80,19 @@ const startInstall = appName => {
 const build = ({ appName, appArgs }) => {
     const appSrc = `${appName}/src`;
 
+    // copy all files that dont need to be copied based on options
     cp('-r', __dirname + `/../src/.`, appName);
+
+    // copy .babelrc
+    cp(__dirname + `/../files-to-copy/babel/${(appArgs.useAdvancedBabel) ? '.advanced-babelrc' : '.babelrc'}`, `${appName}/.babelrc`);
+
+    // copy index.js
     cp(__dirname + `/../files-to-copy/index/${appArgs.indexFile}.js`, `${appSrc}/index.js`);
+
+    // copy App component
     cp(__dirname + `/../files-to-copy/app-component/${appArgs.appComponent}.jsx`, `${appSrc}/App.jsx`);
 
+    // copy redux related files
     if (appArgs.useRedux) {
         mkdir('-p', `${appSrc}/store`);
         mkdir('-p', `${appSrc}/reducers`);
@@ -93,10 +102,12 @@ const build = ({ appName, appArgs }) => {
         cp(__dirname + `/../files-to-copy/message/message-reducer.js`, `${appSrc}/message/message-reducer.js`);
     }
 
+    // copy Root component
     if (appArgs.rootComponent) {
         cp(__dirname + `/../files-to-copy/root-component/${appArgs.rootComponent}.jsx`, `${appSrc}/Root.jsx`);
     }
 
+    // rewrite package.json
     rewritePackageJson(`${appName}/package.json`, appName, appArgs)
         .then(() => {
             startInstall(appName);
