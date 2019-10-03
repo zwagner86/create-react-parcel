@@ -1,3 +1,6 @@
+# 0.5.2 - 10/02/2019 - [Zachary Wagner](mailto:zwagner86@gmail.com)
+-   Updated CLI dependencies.
+
 # 0.5.1 - 08/05/2019 - [Zachary Wagner](mailto:zwagner86@gmail.com)
 -   Added option for basic and advanced `.babelrc` file.
 -   Updated how project devDependencies get configured.
