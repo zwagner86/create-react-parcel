@@ -13,7 +13,7 @@
   "dependencies": {
     "chalk": "2.4.2",
     "commander": "3.0.0",
-    "cross-spawn": "6.0.5",
+    "cross-spawn": "7.0.1",
     "figlet": "1.2.3",
     "inquirer": "6.5.1",
     "shelljs": "0.8.3"
