@@ -13,9 +13,9 @@
     "npm": ">=6.9.0"
 },
   "devDependencies": {
-    "parcel-bundler": "1.12.3"
+    "parcel-bundler": "1.12.4"
   },
   "dependencies": {
-    "react": "16.8.6"
+    "react": "16.12.0"
   }
 }

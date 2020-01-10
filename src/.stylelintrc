@@ -1,0 +1,6 @@
+{
+    "extends": [
+        "@spothero/stylelint-config",
+        "stylelint-prettier/recommended"
+    ]
+}

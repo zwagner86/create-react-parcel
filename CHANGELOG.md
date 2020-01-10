@@ -1,3 +1,8 @@
+# 0.6.0 - 01/10/2020 - [Zachary Wagner](mailto:zwagner86@gmail.com)
+-   Updated CLI dependencies.
+-   Updated generated project dependencies.
+-   Add `prettier` devDependency.
+
 # 0.5.1 - 08/05/2019 - [Zachary Wagner](mailto:zwagner86@gmail.com)
 -   Added option for basic and advanced `.babelrc` file.
 -   Updated how project devDependencies get configured.
