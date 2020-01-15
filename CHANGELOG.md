@@ -1,3 +1,6 @@
+# 1.0.1 - 01/15/2020 - [Zachary Wagner](mailto:zwagner86@gmail.com)
+-   Documentation fix.
+
 # 1.0.0 - 01/15/2020 - [Zachary Wagner](mailto:zwagner86@gmail.com)
 -   `Breaking`: Application name now set via `-n` option instead of a program argument.
 -   Add `--no-new-dir` flag for creating application in top-level in current directory instead of creating a new directory.

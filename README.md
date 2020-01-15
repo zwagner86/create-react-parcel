@@ -121,7 +121,7 @@ There are a few options you can use:
 | Option        | Required | Default | Description                                                                                                                     |
 |---------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------|
 | `-n <name>`   |     N    |   n/a   | Used to set name of application on the command line.                                                                            |
-| `--no-new-dir |     N    |  false  | Flag to not create the application in a new directory.  Useful for creating an application in an existing directory/repository. |
+| `--no-new-dir` |     N    |  false  | Flag to not create the application in a new directory.  Useful for creating an application in an existing directory/repository. |
 
 ## Local Development
 Making updates to the module produced by this repository is simple. Just run `npm install` and all the dependencies will be downloaded appropriately.
