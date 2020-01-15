@@ -44,7 +44,7 @@ const installDependencies = () => {
     })
 };
 
-const startInstall = appName => {
+const startInstall = (appName, createNewDir) => {
     console.log('');
     console.log('----------------------------------------------------------');
     console.log('');
@@ -57,16 +57,24 @@ const startInstall = appName => {
         console.log(chalk.white.bold('Welcome to Create React Parcel App'));
         console.log('----------------------------------------------------------');
         console.log('');
-        cd(appName);
+
+        if (createNewDir) {
+            cd(appName);
+        }
+
         installDependencies()
             .then(() => {
                 console.log('');
                 console.log('');
                 console.log(chalk.white.bold('Let\'s get started!'));
                 console.log('');
-                console.log(chalk.green('Step 1: cd into the newly created ' + appName + ' directory'));
-                console.log('----------------------------------------------------------');
-                console.log(chalk.green('Step 2: Run `npm start`'));
+                if (createNewDir) {
+                    console.log(chalk.green('Step 1: cd into the newly created ' + appName + ' directory'));
+                    console.log('----------------------------------------------------------');
+                    console.log(chalk.green('Step 2: Run `npm start`'));
+                } else {
+                    console.log(chalk.green('Step 1: Run `npm start`'));
+                }
                 console.log('');
             })
             .catch(error => {
@@ -77,40 +85,46 @@ const startInstall = appName => {
 };
 
 // get dependencies passed to build, pass to installDependencies
-const build = ({ appName, appArgs }) => {
-    const appSrc = `${appName}/src`;
+const build = ({ appName, appArgs, createNewDir }) => {
+    const appPath = (createNewDir) ? appName : '.';
+    const appSrcDir = `${appPath}/src`;
 
-    // copy all files that dont need to be copied based on options
-    cp('-r', __dirname + `/../src/.`, appName);
+    if (createNewDir) {
+        // copy all files that dont need to be conditionally copied based on options
+        cp('-r', __dirname + `/../src/.`, appPath);
+    } else {
+        cp('-r', __dirname + `/../src/*`, appPath);
+        cp('-r', __dirname + `/../src/.*`, appPath);
+    }
 
     // copy .babelrc
-    cp(__dirname + `/../files-to-copy/babel/${(appArgs.useAdvancedBabel) ? '.advanced-babelrc' : '.babelrc'}`, `${appName}/.babelrc`);
+    cp(__dirname + `/../files-to-copy/babel/${(appArgs.useAdvancedBabel) ? '.advanced-babelrc' : '.babelrc'}`, `${appPath}/.babelrc`);
 
     // copy index.js
-    cp(__dirname + `/../files-to-copy/index/${appArgs.indexFile}.js`, `${appSrc}/index.js`);
+    cp(__dirname + `/../files-to-copy/index/${appArgs.indexFile}.js`, `${appSrcDir}/index.js`);
 
     // copy App component
-    cp(__dirname + `/../files-to-copy/app-component/${appArgs.appComponent}.jsx`, `${appSrc}/App.jsx`);
+    cp(__dirname + `/../files-to-copy/app-component/${appArgs.appComponent}.jsx`, `${appSrcDir}/App.jsx`);
 
     // copy redux related files
     if (appArgs.useRedux) {
-        mkdir('-p', `${appSrc}/store`);
-        mkdir('-p', `${appSrc}/reducers`);
-        mkdir('-p', `${appSrc}/message`);
-        cp(__dirname + `/../files-to-copy/store/${appArgs.storeFile}.js`, `${appSrc}/store/index.js`);
-        cp(__dirname + `/../files-to-copy/reducer/${appArgs.reducerFile}.js`, `${appSrc}/reducers/index.js`);
-        cp(__dirname + `/../files-to-copy/message/message-reducer.js`, `${appSrc}/message/message-reducer.js`);
+        mkdir('-p', `${appSrcDir}/store`);
+        mkdir('-p', `${appSrcDir}/reducers`);
+        mkdir('-p', `${appSrcDir}/message`);
+        cp(__dirname + `/../files-to-copy/store/${appArgs.storeFile}.js`, `${appSrcDir}/store/index.js`);
+        cp(__dirname + `/../files-to-copy/reducer/${appArgs.reducerFile}.js`, `${appSrcDir}/reducers/index.js`);
+        cp(__dirname + `/../files-to-copy/message/message-reducer.js`, `${appSrcDir}/message/message-reducer.js`);
     }
 
     // copy Root component
     if (appArgs.rootComponent) {
-        cp(__dirname + `/../files-to-copy/root-component/${appArgs.rootComponent}.jsx`, `${appSrc}/Root.jsx`);
+        cp(__dirname + `/../files-to-copy/root-component/${appArgs.rootComponent}.jsx`, `${appSrcDir}/Root.jsx`);
     }
 
     // rewrite package.json
-    rewritePackageJson(`${appName}/package.json`, appName, appArgs)
+    rewritePackageJson(`${appPath}/package.json`, appName, appArgs)
         .then(() => {
-            startInstall(appName);
+            startInstall(appName, createNewDir);
         })
         .catch(() => {
             console.log(chalk.red('An unexpected error occurred.  Please try again.'))

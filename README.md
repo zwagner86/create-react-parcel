@@ -4,7 +4,7 @@ This repository contains the CLI to help facilitate development of React + Parce
 ## Quick Overview
 
 ```sh
-npx create-react-parcel-app my-app
+npx create-react-parcel-app
 ```
 You'll need to answer a few questions and then you are good to go!
 
@@ -34,7 +34,7 @@ To create a new app, you may choose one of the following methods:
 ### npx
 
 ```sh
-npx create-react-parcel-app my-app
+npx create-react-parcel-app
 ```
 
 _([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher, see [instructions for older npm versions](https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f))_
@@ -42,7 +42,7 @@ _([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7
 ### npm
 
 ```sh
-npm init react-parcel-app my-app
+npm init react-parcel-app
 ```
 
 _`npm init <initializer>` is available in npm 6+_
@@ -50,7 +50,7 @@ _`npm init <initializer>` is available in npm 6+_
 ### Yarn
 
 ```sh
-yarn create react-parcel-app my-app
+yarn create react-parcel-app
 ```
 
 _`yarn create` is available in Yarn 0.25+_
@@ -112,8 +112,16 @@ Your app is ready to be deployed.
 
 ```sh
 npm install -g create-react-parcel-app
-create-react-parcel-app my-app
+create-react-parcel-app
 ```
+
+## Options
+There are a few options you can use:
+
+| Option        | Required | Default | Description                                                                                                                     |
+|---------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------|
+| `-n <name>`   |     N    |   n/a   | Used to set name of application on the command line.                                                                            |
+| `--no-new-dir |     N    |  false  | Flag to not create the application in a new directory.  Useful for creating an application in an existing directory/repository. |
 
 ## Local Development
 Making updates to the module produced by this repository is simple. Just run `npm install` and all the dependencies will be downloaded appropriately.

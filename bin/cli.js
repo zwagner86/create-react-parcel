@@ -17,6 +17,8 @@ const miscPackages = Object.keys(dependencies.MISC_PACKAGES);
 program
     .version(package.version)
     .usage('<keywords>')
+    .option('-n, --app-name <name>', 'name of application')
+    .option('--no-new-dir', 'create application in current directory - not a new directory')
     .parse(process.argv);
 
 const appNamePrompt = {
@@ -31,7 +33,7 @@ const appNamePrompt = {
         return 'Please enter a valid app name.';
     },
     when: function (answers) {
-        return program.args.length < 1;
+        return !program.appName;
     }
 };
 
@@ -89,7 +91,8 @@ inquirer.prompt([
     babelPrompt,
     otherPackagesPrompt
 ]).then(answers => {
-    const appName = program.args[0] || answers.appName;
+    const createNewDir = program.newDir;
+    const appName = program.appName || answers.appName;
     const useRedux = answers.redux;
     const useReduxMiddleware = (answers.reduxMiddleware);
     const useRouter = answers.router;
@@ -128,7 +131,7 @@ inquirer.prompt([
     appArgs.appComponent = (useRedux) ? 'app-redux' : 'app-basic';
     appArgs.indexFile = (useRedux || useRouter) ? 'index-root' : 'index-app';
 
-    build({ appName, appArgs });
+    build({ appName, appArgs, createNewDir });
 }).catch(error => {
     console.log(chalk.red('Oops! Something went wrong!'));
     console.log(chalk.red(error));
