@@ -8,15 +8,13 @@ const BASIC_PACKAGES = [
     `\n    "regenerator-runtime": "0.13.5"`
 ];
 const REDUX_PACKAGES = [
+    `\n    "@reduxjs/toolkit": "1.3.6"`,
     `\n    "react-redux": "7.2.0"`,
-    `\n    "redux": "4.0.5"`
 ];
 const HISTORY = `\n    "history": "4.10.1"`;
 const REACT_ROUTER = `\n    "react-router": "5.2.0"`;
 const REACT_ROUTER_DOM = `\n    "react-router-dom": "5.2.0"`;
 const CONNECTED_REACT_ROUTER = `\n    "connected-react-router": "6.8.0"`;
-const REDUX_PROMISE = `\n    "redux-promise-middleware": "6.1.2"`;
-const REDUX_THUNK = `\n    "redux-thunk": "2.3.0"`;
 const UTILITY_PACKAGES = {
     lodash:             `\n    "lodash": "4.17.15"`,
     ramda:              `\n    "ramda": "0.27.0"`
@@ -45,8 +43,6 @@ module.exports = {
     REACT_ROUTER,
     REACT_ROUTER_DOM,
     CONNECTED_REACT_ROUTER,
-    REDUX_PROMISE,
-    REDUX_THUNK,
     UTILITY_PACKAGES,
     TIME_PACKAGES,
     ASYNC_PACKAGES,

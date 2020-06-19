@@ -1,3 +1,6 @@
+# 2.0.0 - 06/19/2020 - [Zachary Wagner](mailto:zwagner86@gmail.com)
+-   Use Redux Toolkit in the generated project!
+
 # 1.1.0 - 06/18/2020 - [Zachary Wagner](mailto:zwagner86@gmail.com)
 -   Updated CLI dependencies.
 -   Updated generated project dependencies.

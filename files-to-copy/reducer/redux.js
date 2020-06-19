@@ -1,6 +1,6 @@
-import {combineReducers} from 'redux';
-import message from '../message/message-reducer';
+import {combineReducers} from '@reduxjs/toolkit';
+import messageReducer from './message/message-slice';
 
 export default combineReducers({
-    message,
+    message: messageReducer,
 });

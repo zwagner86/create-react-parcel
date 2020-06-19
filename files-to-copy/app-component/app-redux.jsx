@@ -18,7 +18,7 @@ App.propTypes = {
 
 const mapStateToProps = (state) => {
     const {
-        message: {message}
+        message: {message},
     } = state;
 
     return {

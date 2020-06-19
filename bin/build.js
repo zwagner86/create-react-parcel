@@ -108,12 +108,10 @@ const build = ({ appName, appArgs, createNewDir }) => {
 
     // copy redux related files
     if (appArgs.useRedux) {
-        mkdir('-p', `${appSrcDir}/store`);
-        mkdir('-p', `${appSrcDir}/reducers`);
         mkdir('-p', `${appSrcDir}/message`);
-        cp(__dirname + `/../files-to-copy/store/${appArgs.storeFile}.js`, `${appSrcDir}/store/index.js`);
-        cp(__dirname + `/../files-to-copy/reducer/${appArgs.reducerFile}.js`, `${appSrcDir}/reducers/index.js`);
-        cp(__dirname + `/../files-to-copy/message/message-reducer.js`, `${appSrcDir}/message/message-reducer.js`);
+        cp(__dirname + `/../files-to-copy/store/${appArgs.storeFile}.js`, `${appSrcDir}/store.js`);
+        cp(__dirname + `/../files-to-copy/reducer/${appArgs.reducerFile}.js`, `${appSrcDir}/root-reducer.js`);
+        cp(__dirname + `/../files-to-copy/message/message-slice.js`, `${appSrcDir}/message/message-slice.js`);
     }
 
     // copy Root component

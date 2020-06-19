@@ -1,9 +1,9 @@
-import {combineReducers} from 'redux';
+import {combineReducers} from '@reduxjs/toolkit';
 import {connectRouter} from 'connected-react-router';
-import message from '../message/message-reducer';
+import messageReducer from './message/message-slice';
 
 export default (history) =>
     combineReducers({
-        message,
+        message: messageReducer,
         router: connectRouter(history),
     });

@@ -40,16 +40,7 @@ const appNamePrompt = {
 const reduxPrompt = {
     type: 'confirm',
     name: 'redux',
-    message: 'Will you be using Redux?:'
-};
-
-const reduxMiddlewarePrompt = {
-    type: 'confirm',
-    name: 'reduxMiddleware',
-    message: 'Do you need redux-thunk and redux-promise middleware?:',
-    when: function (answers) {
-        return answers.redux;
-    }
+    message: 'Will you be using Redux? (courtesy of Redux Toolkit):'
 };
 
 const reactRouterPrompt = {
@@ -86,7 +77,6 @@ const otherPackagesPrompt = {
 inquirer.prompt([
     appNamePrompt,
     reduxPrompt,
-    reduxMiddlewarePrompt,
     reactRouterPrompt,
     babelPrompt,
     otherPackagesPrompt
@@ -94,7 +84,6 @@ inquirer.prompt([
     const createNewDir = program.newDir;
     const appName = program.appName || answers.appName;
     const useRedux = answers.redux;
-    const useReduxMiddleware = (answers.reduxMiddleware);
     const useRouter = answers.router;
     const useAdvancedBabel = answers.babel;
     const packages = answers.others;
@@ -102,7 +91,6 @@ inquirer.prompt([
     const appArgs = {
         useAdvancedBabel: useAdvancedBabel,
         useRedux: useRedux,
-        useReduxMiddleware: useReduxMiddleware,
         useRouter: useRouter,
         packages: packages
     };
@@ -111,12 +99,7 @@ inquirer.prompt([
         appArgs.reducerFile = 'redux';
         appArgs.rootComponent = (useRouter) ? 'root-redux-router' : 'root-redux';
 
-        if (useReduxMiddleware && useRouter) {
-            appArgs.storeFile = 'all-middleware';
-            appArgs.reducerFile = 'redux-with-router';
-        } else if (useReduxMiddleware && !useRouter) {
-            appArgs.storeFile = 'redux-middleware';
-        } else if (!useReduxMiddleware && useRouter) {
+        if (useRouter) {
             appArgs.storeFile = 'router-middleware';
             appArgs.reducerFile = 'redux-with-router';
         } else {

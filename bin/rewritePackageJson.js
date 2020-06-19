@@ -54,11 +54,6 @@ const rewritePackageJson = (file, appName, appArgs) => {
                 }
             }
 
-            if (appArgs.useReduxMiddleware) {
-                appDependencies.push(dependencies.REDUX_PROMISE);
-                appDependencies.push(dependencies.REDUX_THUNK);
-            }
-
             if (appArgs.useRouter) {
                 appDependencies.push(dependencies.REACT_ROUTER_DOM);
             }
