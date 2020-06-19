@@ -1,9 +1,7 @@
 {
     "bracketSpacing": false,
-    "endOfLine": "lf",
     "singleQuote": true,
     "tabWidth": 4,
-    "trailingComma": "es5",
     "overrides": [
         {
             "files": "*.json",
@@ -15,6 +13,12 @@
             "files": "*.scss",
             "options": {
                 "singleQuote": false
+            }
+        },
+        {
+            "files": [".babelrc", ".eslintrc", ".postcssrc", ".prettierrc"],
+            "options": {
+                "parser": "json"
             }
         }
     ]

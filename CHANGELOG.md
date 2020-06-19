@@ -1,3 +1,8 @@
+# 1.1.0 - 06/18/2020 - [Zachary Wagner](mailto:zwagner86@gmail.com)
+-   Updated CLI dependencies.
+-   Updated generated project dependencies.
+-   Updated generated project files.
+
 # 1.0.1 - 01/15/2020 - [Zachary Wagner](mailto:zwagner86@gmail.com)
 -   Documentation fix.
 

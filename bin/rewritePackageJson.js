@@ -86,7 +86,7 @@ const rewritePackageJson = (file, appName, appArgs) => {
             let result2 = result1.replace(/"parcel-bundler": "1.12.4"/g, `${appDevDependenciesString}`);
 
             // rewrite dependencies
-            const result3 = result2.replace(/"react": "16.12.0"/g, `${appDependenciesString}`);
+            const result3 = result2.replace(/"react": "16.13.1"/g, `${appDependenciesString}`);
 
             fs.writeFile(file, result3, 'utf8', err => {
                 if (err) {

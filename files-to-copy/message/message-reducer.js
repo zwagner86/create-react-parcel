@@ -1,5 +1,5 @@
 const initialState = {
-    message: 'Welcome to React + Parcel with Redux'
+    message: 'Welcome to React + Parcel with Redux',
 };
 
 export default function message(state = initialState, {type, payload}) {

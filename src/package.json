@@ -6,7 +6,13 @@
   "scripts": {
     "start": "parcel src/index.html --open",
     "build": "parcel build src/index.html",
-    "test": "jest"
+    "test": "jest",
+    "prettier": "prettier --check \"**/*.*\"",
+    "prettier:write": "prettier --write \"**/*.*\"",
+    "lint": "eslint 'src/**/*.{js,jsx}'",
+    "lint:fix": "npm run lint -- --fix",
+    "stylelint": "stylelint 'src/**/*.scss'",
+    "stylelint:fix": "npm run stylelint -- --fix"
   },
   "engines": {
     "node": ">=10.16.1",
@@ -16,6 +22,6 @@
     "parcel-bundler": "1.12.4"
   },
   "dependencies": {
-    "react": "16.12.0"
+    "react": "16.13.1"
   }
 }

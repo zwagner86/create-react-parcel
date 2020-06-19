@@ -4,9 +4,7 @@ import App from './App';
 
 test('shows the React + Parcel message', () => {
     const testMessage = 'React + Parcel';
-    const {getByText} = render(
-        <App />,
-    );
+    const {getByText} = render(<App />);
 
     expect(getByText(testMessage)).toBeInTheDocument();
 });

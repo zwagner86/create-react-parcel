@@ -4,10 +4,7 @@ import reducers from '../reducers';
 let store;
 
 export default function create(initialState) {
-    store = createStore(
-        reducers,
-        initialState
-    );
+    store = createStore(reducers,initialState);
 
     return store;
 }
