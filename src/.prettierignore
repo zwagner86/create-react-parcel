@@ -2,11 +2,13 @@
 .package-lock.json
 .browserslistrc
 .editorconfig
+.env
 .gitignore
 .npmrc
 .nvmrc
 .prettierignore
 .stylelintrc
 dist/*
+coverage/*
 node_modules/*
 .cache/*

@@ -1,5 +1,7 @@
-# 2.0.1 - 10/03/2020 - [Zachary Wagner](mailto:zwagner86@gmail.com)
+# 3.0.0 - 11/12/2020 - [Zachary Wagner](mailto:zwagner86@gmail.com)
+-   `Breaking`: Remove support for Node 10.x in generated project.
 -   Updated CLI dependencies.
+-   Updated generated project dependencies.
 
 # 2.0.0 - 06/19/2020 - [Zachary Wagner](mailto:zwagner86@gmail.com)
 -   Use Redux Toolkit in the generated project!
