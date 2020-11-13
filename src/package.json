@@ -15,8 +15,8 @@
     "stylelint:fix": "npm run stylelint -- --fix"
   },
   "engines": {
-    "node": ">=10.16.1",
-    "npm": ">=6.9.0"
+    "node": ">=12.13.0",
+    "npm": ">=6.12.0"
 },
   "devDependencies": {
     "parcel-bundler": "1.12.4"

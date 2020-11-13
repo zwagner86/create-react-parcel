@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "3.0.0",
   "main": "index.js",
   "bin": "bin/cli.js",
   "name": "create-react-parcel-app",
@@ -12,10 +12,10 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "4.1.0",
-    "commander": "5.1.0",
+    "commander": "6.2.0",
     "cross-spawn": "7.0.3",
-    "figlet": "1.4.0",
-    "inquirer": "7.2.0",
+    "figlet": "1.5.0",
+    "inquirer": "7.3.3",
     "shelljs": "0.8.4"
   }
 }
