@@ -21,6 +21,8 @@ program
     .option('--no-new-dir', 'create application in current directory - not a new directory')
     .parse(process.argv);
 
+const options = program.opts();
+
 const appNamePrompt = {
     type: 'input',
     name: 'appName',
@@ -33,7 +35,7 @@ const appNamePrompt = {
         return 'Please enter a valid app name.';
     },
     when: function (answers) {
-        return !program.appName;
+        return !options.appName;
     }
 };
 
@@ -81,8 +83,8 @@ inquirer.prompt([
     babelPrompt,
     otherPackagesPrompt
 ]).then(answers => {
-    const createNewDir = program.newDir;
-    const appName = program.appName || answers.appName;
+    const createNewDir = options.newDir;
+    const appName = options.appName || answers.appName;
     const useRedux = answers.redux;
     const useRouter = answers.router;
     const useAdvancedBabel = answers.babel;
