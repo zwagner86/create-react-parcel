@@ -11,10 +11,10 @@
   "repository": "https://github.com/zwagner86/create-react-parcel",
   "license": "MIT",
   "dependencies": {
-    "chalk": "4.1.0",
+    "chalk": "4.1.2",
     "commander": "6.2.0",
     "cross-spawn": "7.0.3",
-    "figlet": "1.5.0",
+    "figlet": "1.5.2",
     "inquirer": "7.3.3",
     "shelljs": "0.8.4"
   }
